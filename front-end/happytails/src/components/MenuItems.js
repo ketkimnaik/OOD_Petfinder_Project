@@ -1,7 +1,7 @@
 export const MenuItems = [
     {
         title: 'Pet Nutrition',
-        path: '/marketing',
+        path: '/nutrition',
         cName: 'dropdown-link'
     },
     {

@@ -6,7 +6,7 @@ import SignInSide from './pages/SignInSide';
 export function Button() {
     return (
         <Link to='sign-up'>
-            <button className='btn'>Login</button>
+            <button className='btn' title="Login" color='#1888ff'>Login</button>
         </Link>
     );
 }

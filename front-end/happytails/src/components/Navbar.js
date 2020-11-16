@@ -43,7 +43,7 @@ function Navbar()
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className='nav-item'>
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/searchpage' className='nav-links' onClick={closeMobileMenu}>
                             Home
                         </Link>
                     </li>
@@ -51,13 +51,13 @@ function Navbar()
                     onMouseEnter={onMouseEnter}
                     onMouseLeave={onMouseLeave}
                     >
-                        <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                             Pet Care <i className='fas fa-caret-down' />
                         </Link>
                         {dropdown && <Dropdown/>}
                     </li>
                     <li className='nav-item'>
-                        <Link to='/contactus' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/searchpage' className='nav-links' onClick={closeMobileMenu}>
                             Day Care Centers
                         </Link>
                     </li>

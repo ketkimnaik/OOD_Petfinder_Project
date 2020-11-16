@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
   }
   
   .navbar-logo {
@@ -14,6 +15,7 @@
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
   }
   
   .fa-firstdraft {
@@ -30,6 +32,7 @@
     width: 70vw;
     justify-content: end;
     margin-right: 2rem;
+    font-family: 'Times New Roman', Times, serif;
   }
   
   .nav-item {
@@ -42,6 +45,8 @@
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
   }
   
   .nav-links:hover {
@@ -118,11 +123,13 @@
       transform: translate(-100%, 60%);
       font-size: 1.8rem;
       cursor: pointer;
+      font-family: 'Times New Roman', Times, serif;
     }
   
     .fa-times {
       color: #fff;
       font-size: 2rem;
+      font-family: 'Times New Roman', Times, serif;
     }
   
     .nav-links-mobile {
@@ -136,6 +143,7 @@
       text-decoration: none;
       color: #fff;
       font-size: 1.5rem;
+      font-family: 'Times New Roman', Times, serif;
     }
   
     .nav-links-mobile:hover {

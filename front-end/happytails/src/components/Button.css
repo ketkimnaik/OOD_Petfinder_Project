@@ -8,16 +8,18 @@
     outline: none;
     border: none;
     font-size: 20px;
-    color: #fff;
+    color: rgb(67, 140, 235);
     cursor: pointer;
     background-color: var(--primary);
+    font-family: 'Times New Roman', Times, serif;
+    
 }
 
 .btn:hover{
     padding: 6px 18px;
     transition: all 0.3s ease-out;
-    background-color: transparent;
-    color: #fff;
+    background-color: #1888FF;
+    color: rgb(255, 255, 255);
     border-radius: 4px;
     border: 2px solid var(--primary);
 }

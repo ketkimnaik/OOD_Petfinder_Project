@@ -1,47 +1,30 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { MDBCol, MDBFormInline, MDBBtn, MDBNavbarBrand, MDBNavbarToggler, MDBNavbar, MDBCollapse, MDBNavbarNav } from
-"mdbreact";
+import React from "react";
+import { MDBCol, MDBIcon } from "mdbreact";
+import './SearchPage.css'
 
-class SearchPage extends Component {
-state = {
-  collapsed: false
-}
-
-handleTogglerClick = () => {
-  this.setState({
-    collapsed: !this.state.collapsed
-  });
-}
-
-handleNavbarClick = () => {
-  this.setState({
-    collapsed: false
-  });
-}
-
-render() {
+const SearchPage = () => {
   return (
-    <MDBCol md="12">
-      <MDBNavbar color="deep-purple" className="text-white darken-3" dark expand="md">
-        <MDBNavbarBrand>Navbar</MDBNavbarBrand>
-        <MDBNavbarToggler onClick={this.handleTogglerClick} />
-        <Router>
-          <MDBCollapse isOpen={this.state.collapsed} navbar>
-            <MDBNavbarNav right onClick={this.handleNavbarClick}>
-              <MDBFormInline className="md-form mr-auto m-0">
-                <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-                <MDBBtn outline color="white" size="sm" type="submit" className="mr-auto">
-                  Search
-                </MDBBtn>
-              </MDBFormInline>
-            </MDBNavbarNav>
-          </MDBCollapse>
-        </Router>
-      </MDBNavbar>
-    </MDBCol>
-    );
-  }
+    <>
+    <div class="s01">
+      <form>
+        <fieldset>
+          <legend>Find your best friend right near you! </legend>
+        </fieldset>
+        <div class="inner-form">
+          <div class="input-field first-wrap">
+            <input id="search" type="text" placeholder="Enter your city or zipcode here .." />
+          </div>
+          <div class="input-field third-wrap">
+            <button class="btn-search" type="button">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </>
+  );
 }
+
+
+
 
 export default SearchPage;
