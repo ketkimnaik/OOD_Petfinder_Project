@@ -29,7 +29,7 @@ public class UserDAOImp implements UserDAO {
 		
 //		Get the current Hibernate session
 		Session session = entityManager.unwrap(Session.class);
-		
+		email = "ketkimnaik@gmail.com";
 //		now retrieve/read from database using email
 		Query<User> query = session.createQuery("from User where email=:uEmail", User.class);
 		query.setParameter("uEmail", email);
@@ -40,6 +40,7 @@ public class UserDAOImp implements UserDAO {
 //		so use giveSingleResul() function
 		try {
 			user = query.getSingleResult();
+			System.out.println(user.firstName);
 		} catch (Exception e) {
 			user = null;
 		}
