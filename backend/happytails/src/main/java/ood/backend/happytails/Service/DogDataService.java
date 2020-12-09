@@ -3,9 +3,9 @@ package ood.backend.happytails.Service;
 import java.util.Collection;
 import java.util.List;
 
-import ood.backend.happytails.POJO.Dog_Data;
+import ood.backend.happytails.POJO.DogData;
 
 public interface DogDataService {
 	
-	public List<Dog_Data> findBycity(String city);
+	public List<DogData> findBycity(String city);
 }

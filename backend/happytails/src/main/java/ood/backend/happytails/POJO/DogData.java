@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="dogdata")
-public class Dog_Data {
+public class DogData {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -104,9 +104,9 @@ public class Dog_Data {
 	@Column(name = "description")
 	private String description;
 	
-	public Dog_Data() {}
+	public DogData() {}
 
-	public Dog_Data(int id, String org_id, String pic_new, String species, String breed_primary, String breed_secondary,
+	public DogData(int id, String org_id, String pic_new, String species, String breed_primary, String breed_secondary,
 			String breed_mixed, String breed_unknown, String color_primary, String age, String sex, String size,
 			String house_trained, String special_needs, String shots_current, String env_children, String env_dogs,
 			String env_cats, String name, String tags, String status, String contact_city, String posted,

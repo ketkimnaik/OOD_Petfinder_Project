@@ -29,6 +29,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	// add a reference to our security data source
@@ -38,34 +39,49 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
     
+    //trial code
+//    protected void configure(final HttpSecurity http) throws Exception {}
+    
     
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
         // Form Login config
+		
+	http.httpBasic().disable();
 
-		http.authorizeRequests()
-			.antMatchers("/").hasRole("USER")
-			.antMatchers("/systems/**").hasRole("ADMIN")
-			.antMatchers("/register").permitAll()
-			.antMatchers("/login/home").permitAll()
-			.antMatchers("/dog").permitAll()
-			.antMatchers("/confirm").permitAll()
-			.antMatchers("/login").permitAll()
-            .and()
-			.formLogin()
-			.loginPage("/dog/doglist")
-			.loginProcessingUrl("/authenticateTheUser")
-			.successHandler(customAuthenticationSuccessHandler)
-			.usernameParameter("email")
-			.permitAll()
-			.and()
-			.logout().permitAll()
-			.and()
-			.exceptionHandling().accessDeniedPage("/access-denied")
-			.and().csrf().disable();// disable CSRF
+//		http
+//			.authorizeRequests()
+////			.antMatchers("/").hasRole("USER").permitAll()
+////			.antMatchers("/systems/**").hasRole("ADMIN")
+//			.antMatchers("/register").permitAll()
+//			.antMatchers("/login/home").permitAll()
+////			.antMatchers("/dog").permitAll()
+//			.antMatchers("/confirm").permitAll()
+//			.antMatchers("/login").permitAll();
+////			.anyRequest().permitAll();
+//		
+//        http.formLogin()
+//			.loginPage("/login/home")
+//			.loginProcessingUrl("/authenticateTheUser")
+//			.successHandler(customAuthenticationSuccessHandler)
+//			.usernameParameter("email")
+//			.permitAll()
+//			.and()
+//			.logout().permitAll()
+//			.and()
+//			.exceptionHandling().accessDeniedPage("/access-denied")
+//			.and().csrf().disable();// disable CSRF
+	
+		http.authorizeRequests().antMatchers("/fav/**").authenticated();
+	    http.csrf().disable();
+	    http.formLogin().loginPage("/login/showMyLoginPage").successHandler(customAuthenticationSuccessHandler)
+	    .usernameParameter("email").permitAll().and().exceptionHandling().accessDeniedPage("/access-denied")
+	    .and().csrf().disable();
 		
 	}
+	
+	
 	
 	
 	//beans

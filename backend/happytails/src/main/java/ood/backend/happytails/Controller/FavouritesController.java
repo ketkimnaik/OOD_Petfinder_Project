@@ -1,27 +1,19 @@
 package ood.backend.happytails.Controller;
 
-import java.util.Collection;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
-import ood.backend.happytails.POJO.Dog_Data;
-import ood.backend.happytails.Service.DogDataService;
-import ood.backend.happytails.Service.UserService;
+import ood.backend.happytails.POJO.User;
 
 @RestController
-@RequestMapping("/dog")
-public class dogdataController {
-	
-	@Autowired
-    private DogDataService dogDataService;
-	
+@RequestMapping("/fav")
+public class FavouritesController {
+
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		
@@ -30,13 +22,17 @@ public class dogdataController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
 	
-	@GetMapping("/doglist")
-	public Collection<Dog_Data> doglist(/*@RequestParam int zipcode*/) {
-		
-		String city = "Syracuse";
-		return dogDataService.findBycity(city);
-		
-	}
-	
-	
+	/*
+    * Get user from session attribute
+    */
+   @GetMapping("/info")
+   public String userInfo(@SessionAttribute("user") User user) {
+
+      //find user by email get all details including id
+	   
+	   //pass id get fav list
+	   
+	   
+      return "favourites";
+   }
 }

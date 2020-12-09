@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -20,7 +21,7 @@ import ood.backend.happytails.POJO.User;
 import ood.backend.happytails.Service.UserService;
 import ood.backend.happytails.form.RegisterUser;
 
-@Controller
+@RestController
 @RequestMapping("/register")
 public class RegistrationController {
 	
@@ -35,12 +36,23 @@ public class RegistrationController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}	
 	
+//	@GetMapping("/showRegistrationForm")
+//	public String showMyLoginPage(Model model) {
+//		
+////		model.addAttribute("newUser", new RegisterUser());
+////		ModelAndView modelAndView = new ModelAndView("registration-form");
+////		return modelAndView;
+//		return "registration";
+//	}
+	
+	//trial method
 	@GetMapping("/showRegistrationForm")
-	public ModelAndView showMyLoginPage(Model model) {
+	public String showMyReg() {
 		
-		model.addAttribute("newUser", new RegisterUser());
-		ModelAndView modelAndView = new ModelAndView("registration-form");
-		return modelAndView;
+//		model.addAttribute("newUser", new RegisterUser());
+//		ModelAndView modelAndView = new ModelAndView("registration-form");
+//		return modelAndView;
+		return "registration";
 	}
 	
 	@PostMapping("/processRegistrationForm")

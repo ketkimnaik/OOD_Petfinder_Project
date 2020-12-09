@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ood.backend.happytails.DAO.DogDataDAO;
-import ood.backend.happytails.POJO.Dog_Data;
+import ood.backend.happytails.POJO.DogData;
 
 @Service
 public class DogDataServiceImp implements DogDataService {
@@ -18,7 +18,7 @@ public class DogDataServiceImp implements DogDataService {
 	
 	@Override
 	@Transactional
-	public List<Dog_Data> findBycity(String city) {
+	public List<DogData> findBycity(String city) {
 		// TODO Auto-generated method stub
 		return dogDataDAO.findBycity(city);
 	}

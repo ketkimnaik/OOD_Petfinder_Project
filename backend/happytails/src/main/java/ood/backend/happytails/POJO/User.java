@@ -56,6 +56,8 @@ public class User {
 	joinColumns = @JoinColumn(name = "user_id"), 
 	inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Collection<Role> roles;
+	
+
 
 	public User(String firstName, String lastName, String email, String phone, String password,
 			Collection<Role> roles) {
@@ -65,6 +67,25 @@ public class User {
 		this.phone = phone;
 		this.password = password;
 		this.roles = roles;
+	}
+	
+//	Establish many to many relation between user table and favourites table
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "favourites", 
+	joinColumns = @JoinColumn(name = "user_id"), 
+	inverseJoinColumns = @JoinColumn(name = "dog_id"))
+	private Collection<DogData> dogdata;
+
+	public User(Long id, String firstName, String lastName, String email, String phone, String password,
+		Collection<Role> roles, Collection<DogData> dogdata) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.password = password;
+		this.roles = roles;
+		this.dogdata = dogdata;
 	}
 
 	public Long getId() {
@@ -123,12 +144,15 @@ public class User {
 		this.roles = roles;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", phone=" + phone + ", password=" + password + "]";
+	public Collection<DogData> getDogdata() {
+		return dogdata;
+	}
+
+	public void setDogdata(Collection<DogData> dogdata) {
+		this.dogdata = dogdata;
 	}
 	
 	
+
 	
 }

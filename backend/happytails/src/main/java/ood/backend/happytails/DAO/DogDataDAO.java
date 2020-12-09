@@ -3,10 +3,10 @@ package ood.backend.happytails.DAO;
 import java.util.Collection;
 import java.util.List;
 
-import ood.backend.happytails.POJO.Dog_Data;
+import ood.backend.happytails.POJO.DogData;
 
 public interface DogDataDAO {
 	
-	public List<Dog_Data> findBycity(String city);
+	public List<DogData> findBycity(String city);
 	
 }

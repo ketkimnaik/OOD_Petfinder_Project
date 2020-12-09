@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
-import ood.backend.happytails.POJO.Dog_Data;
+import ood.backend.happytails.POJO.DogData;
 
 @Repository
 public class DogDataDAOImp implements DogDataDAO {
@@ -21,17 +21,17 @@ public class DogDataDAOImp implements DogDataDAO {
 	
 	
 	@Override
-	public List<Dog_Data> findBycity(String city) {
+	public List<DogData> findBycity(String city) {
 //		get the current hibernate session
 		Session session = entityManager.unwrap(Session.class);
 //	Need to take list of dogs	
 		
 //		Need to write code
 
-		Query<Dog_Data> query = session.createQuery("from Dog_Data where contact_city=:ucity", Dog_Data.class);
+		Query<DogData> query = session.createQuery("from DogData where contact_city=:ucity", DogData.class);
 		query.setParameter("ucity", city);
 		
-		List<Dog_Data> dd = null;
+		List<DogData> dd = null;
 		
 //		Check the entry of the user with given email and email is always unique for each user 
 //		so use giveSingleResul() function
