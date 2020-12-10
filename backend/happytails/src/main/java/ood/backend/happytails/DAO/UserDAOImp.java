@@ -19,7 +19,7 @@ public class UserDAOImp implements UserDAO {
 	public void save(User user) {
 //		Get the current Hibernate session
 		Session session = entityManager.unwrap(Session.class);
-		
+		System.out.println(user.firstName);
 //		Save the user in database
 		session.saveOrUpdate(user);
 	}
@@ -29,7 +29,7 @@ public class UserDAOImp implements UserDAO {
 		
 //		Get the current Hibernate session
 		Session session = entityManager.unwrap(Session.class);
-		email = "ketkimnaik@gmail.com";
+//		email = "ketkimnaik@gmail.com";
 //		now retrieve/read from database using email
 		Query<User> query = session.createQuery("from User where email=:uEmail", User.class);
 		query.setParameter("uEmail", email);

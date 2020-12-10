@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import ood.backend.happytails.POJO.DogData;
 import ood.backend.happytails.POJO.User;
 import ood.backend.happytails.Service.UserService;
+import ood.backend.happytails.form.SearchCity;
 
 @RestController
 @RequestMapping("/login")
@@ -45,31 +47,26 @@ public class LoginController {
 //      return new User();
 //   }
 		
-	@GetMapping("/showMyLoginPagedemo")
-	public User showUser() {
-		
-		User u = userService.findByemail("ketkimnaik@gmail.com");
-		
-		Collection<DogData> dd = u.getDogdata();
-		
-		for(DogData i : dd) {
-			System.out.println(i.getId());
-		}
-
-		return u;
-	}
+//	@GetMapping("/showMyLoginPagedemo")
+//	public User showUser() {
+//		
+//		User u = userService.findByemail("ketkimnaik@gmail.com");
+//		
+//		Collection<DogData> dd = u.getDogdata();
+//		
+//		for(DogData i : dd) {
+//			System.out.println(i.getId());
+//		}
+//
+//		return u;
+//	}
 	
 	@GetMapping("/showMyLoginPage")
 	public ModelAndView showForm() {
 		
 		ModelAndView modelAndView = new ModelAndView("login_form");
-		
 		return modelAndView;
 	}
 	
-	@GetMapping("/trial")
-	public String trial() {
-		
-		return "trial login page";
-	}
+	
 }

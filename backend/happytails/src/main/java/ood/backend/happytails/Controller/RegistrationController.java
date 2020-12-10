@@ -36,8 +36,18 @@ public class RegistrationController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}	
 	
+	@GetMapping("/showRegistrationForm")
+	public ModelAndView showMyLoginPage(Model model) {
+		
+		model.addAttribute("newUser", new RegisterUser());
+		ModelAndView modelAndView = new ModelAndView("registration-form");
+		return modelAndView;
+		
+	}
+	
+	//trial meth
 //	@GetMapping("/showRegistrationForm")
-//	public String showMyLoginPage(Model model) {
+//	public String showMyReg() {
 //		
 ////		model.addAttribute("newUser", new RegisterUser());
 ////		ModelAndView modelAndView = new ModelAndView("registration-form");
@@ -45,23 +55,11 @@ public class RegistrationController {
 //		return "registration";
 //	}
 	
-	//trial method
-	@GetMapping("/showRegistrationForm")
-	public String showMyReg() {
-		
-//		model.addAttribute("newUser", new RegisterUser());
-//		ModelAndView modelAndView = new ModelAndView("registration-form");
-//		return modelAndView;
-		return "registration";
-	}
-	
 	@PostMapping("/processRegistrationForm")
 	public ModelAndView processRegistrationForm(
 				@Valid @ModelAttribute("newUser") RegisterUser newUser, 
 				BindingResult bindingResult, 
 				Model model, RedirectAttributes redirect) {
-		
-		
 		
 		 
 		String email = newUser.getEmail();
@@ -71,9 +69,12 @@ public class RegistrationController {
 		if (bindingResult.hasErrors()){
 			 return new ModelAndView("registration-form");
 	    }
-
+		System.out.println(email);
 //		  Check the database if user already exists
         User existing_email = userService.findByemail(email);
+        if(existing_email != null) {
+        	System.out.println("email exist");
+        }
           
         if(existing_email != null) {
         	
@@ -86,11 +87,13 @@ public class RegistrationController {
           
 //      Create user account  
         
-        User user = userService.transfer(newUser);
+        userService.save(newUser);
+        
+//        System.out.println("User Created:", user.email);
 
         redirect.addFlashAttribute("newUserSaveStatus", true);
         
-        return new ModelAndView("redirect:/showMyLoginPage");	
+        return new ModelAndView("redirect:/login/showMyLoginPage");	
 	}
 	
 	

@@ -1,14 +1,19 @@
 package ood.backend.happytails.Controller;
 
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@CrossOrigin(origins = "http://localhost:3000/")
+
+import ood.backend.happytails.form.SearchCity;
+
+
 @RestController
 public class HomeController {
 
@@ -21,16 +26,13 @@ public class HomeController {
 	}
 	
 	@GetMapping("/")
-	public String index() {
+	public ModelAndView showHomePage(Model model) {
 		
-		return "index";
+		model.addAttribute("searchCity", new SearchCity());
+		ModelAndView modelAndView = new ModelAndView("home_page");
+		
+		return modelAndView;
 	}
 	
-//	trial method
-	
-	@GetMapping("/trial")
-	public String trial() {
-		
-		return "trial";
-	}
+
 }

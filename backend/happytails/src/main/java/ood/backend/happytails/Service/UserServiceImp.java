@@ -46,6 +46,8 @@ public class UserServiceImp implements UserService {
 		// give user default role of "ROLE_USER"
 		user.setRoles(Arrays.asList(roleDAO.findRoleByName("ROLE_USER")));
 		
+		
+		
 		userDAO.save(user);
 	}
 	
