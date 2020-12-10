@@ -24,13 +24,11 @@
 
 
 <div class="row">
-    <div class="col-sm-3" th:each="temp : ${DogListModel}">
-      <p th:text="${temp.contact_city}"></p>
-      <p th:text="${temp.id}"></p>
-      <p th:text="${temp.name}"></p>
-      <img th:src="${temp.pic_new}" class="img-responsive" style="width:100%" alt="Image">
-      
-      <a th:href="@{'/dog/details/' + ${temp.id}}">view</a>
+    <div class="col-sm-3" th:object="${dogdetail}">
+      <p th:text="*{contact_city}"></p>
+      <p th:text="*{name}"></p>
+      <img th:src="*{pic_new}" class="img-responsive" style="width:100%" alt="Image">
+     
       
     </div>
     

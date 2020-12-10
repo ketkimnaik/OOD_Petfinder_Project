@@ -1,6 +1,8 @@
 package ood.backend.happytails.Config;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
+import ood.backend.happytails.POJO.DogData;
 import ood.backend.happytails.POJO.User;
 import ood.backend.happytails.Service.UserService;
 
@@ -28,11 +31,11 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
 		System.out.println("\n\nIn customAuthenticationSuccessHandler\n\n");
 
-		String userName = authentication.getName();
+		String email = authentication.getName();
 		
-		System.out.println("userName=" + userName);
+		System.out.println("Email=" + email);
 
-		User user = userService.findByemail(userName);
+		User user = userService.findByemail(email);
 		// now place in the session
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user);

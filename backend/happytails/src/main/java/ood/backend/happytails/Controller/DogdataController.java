@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,7 +54,7 @@ public class DogdataController {
 //	}
 	
 	@PostMapping("/doglist")
-	public ModelAndView processSwiftRequest(
+	public ModelAndView processDogSearchRequest(
 				@Valid @ModelAttribute("searchCity") SearchCity form, 
 				BindingResult theBindingResult, 
 				Model theModel) {
@@ -85,5 +86,13 @@ public class DogdataController {
         return new ModelAndView("dog_page");	
 	}
 	
+	@GetMapping("/details/{id}")
+	public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
+	    ModelAndView mav = new ModelAndView("dogdetail_page");
+	    DogData dd = dogDataService.getDogDetail(id);
+	    mav.addObject("dogdetail", dd);
+	     
+	    return mav;
+	}
 	
 }

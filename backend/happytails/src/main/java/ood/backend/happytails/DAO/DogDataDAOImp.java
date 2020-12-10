@@ -44,5 +44,30 @@ public class DogDataDAOImp implements DogDataDAO {
 
 		return dd; 
 	}
+	
+	@Override
+	public DogData getDogDetail(int id) {
+//		get the current hibernate session
+		Session session = entityManager.unwrap(Session.class);
+//	Need to take list of dogs	
+		
+//		Need to write code
+
+		Query<DogData> query = session.createQuery("from DogData where id=:uid", DogData.class);
+		query.setParameter("uid", id);
+		
+		DogData dd = null;
+		
+//		Check the entry of the user with given email and email is always unique for each user 
+//		so use giveSingleResul() function
+		try {
+			dd = query.getSingleResult();
+//			System.out.println(dd.name);
+		} catch (Exception e) {
+			dd = null;
+		}
+
+		return dd; 
+	}
 
 }

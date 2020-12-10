@@ -22,5 +22,11 @@ public class DogDataServiceImp implements DogDataService {
 		// TODO Auto-generated method stub
 		return dogDataDAO.findBycity(city);
 	}
+	
+	@Override
+	@Transactional
+	public DogData getDogDetail(int id) {
+		return dogDataDAO.getDogDetail(id);
+	}
 
 }

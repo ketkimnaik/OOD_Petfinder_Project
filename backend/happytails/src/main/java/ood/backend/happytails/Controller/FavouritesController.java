@@ -1,5 +1,7 @@
 package ood.backend.happytails.Controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,10 +34,11 @@ public class FavouritesController {
 	   
 	   //pass id get fav list
 	   
-	   
+//	  System.out.println(session.user.firstName);
       return "favourites";
    }
    
+	
    @GetMapping("/trial")
    public String userInfoo() {
 
