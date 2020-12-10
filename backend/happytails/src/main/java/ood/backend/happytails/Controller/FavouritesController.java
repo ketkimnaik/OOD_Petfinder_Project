@@ -35,4 +35,15 @@ public class FavouritesController {
 	   
       return "favourites";
    }
+   
+   @GetMapping("/trial")
+   public String userInfoo() {
+
+      //find user by email get all details including id
+	   
+	   //pass id get fav list
+	   
+	   
+      return "favourites";
+   }
 }

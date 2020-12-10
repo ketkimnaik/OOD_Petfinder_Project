@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import ood.backend.happytails.POJO.DogData;
 import ood.backend.happytails.Service.DogDataService;
 import ood.backend.happytails.Service.UserService;
 
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/dog")
 public class DogdataController {
@@ -31,8 +33,9 @@ public class DogdataController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
 	
+	
 	@GetMapping("/doglist")
-	public Collection<DogData> doglist(/*@RequestParam int zipcode*/) {
+	public Collection<DogData> doglist(/*@RequestParam String city*/) {
 		
 		String city = "SYRACUSE";
 		return dogDataService.findBycity(city);

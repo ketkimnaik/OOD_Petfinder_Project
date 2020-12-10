@@ -60,9 +60,11 @@ public class LoginController {
 	}
 	
 	@GetMapping("/showMyLoginPage")
-	public String showUserdemo() {
+	public ModelAndView showForm() {
 		
-		return "login guys";
+		ModelAndView modelAndView = new ModelAndView("login_form");
+		
+		return modelAndView;
 	}
 	
 	@GetMapping("/trial")

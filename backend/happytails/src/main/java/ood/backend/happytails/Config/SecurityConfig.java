@@ -42,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //trial code
 //    protected void configure(final HttpSecurity http) throws Exception {}
     
+ 
     
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -74,8 +75,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //			.and().csrf().disable();// disable CSRF
 	
 		http.authorizeRequests().antMatchers("/fav/**").authenticated();
+        
+		
 	    http.csrf().disable();
-	    http.formLogin().loginPage("/login/showMyLoginPage").successHandler(customAuthenticationSuccessHandler)
+	    http.formLogin().loginPage("/login/showMyLoginPage").loginProcessingUrl("/authenticateTheUser")
+		.successHandler(customAuthenticationSuccessHandler)
 	    .usernameParameter("email").permitAll().and().exceptionHandling().accessDeniedPage("/access-denied")
 	    .and().csrf().disable();
 		
