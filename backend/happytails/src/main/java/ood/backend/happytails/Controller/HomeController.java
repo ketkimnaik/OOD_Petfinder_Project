@@ -17,6 +17,7 @@ import ood.backend.happytails.form.SearchCity;
 @RestController
 public class HomeController {
 
+//	Remove white spaces
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		
@@ -25,6 +26,7 @@ public class HomeController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
 	
+//	Display the home page when run the project
 	@GetMapping("/")
 	public ModelAndView showHomePage(Model model) {
 		

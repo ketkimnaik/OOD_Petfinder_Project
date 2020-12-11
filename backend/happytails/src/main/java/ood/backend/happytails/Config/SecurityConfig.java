@@ -25,8 +25,6 @@ import ood.backend.happytails.Service.UserService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
-
 @Configuration
 @EnableWebSecurity
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -47,37 +45,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-        // Form Login config
-		
-	http.httpBasic().disable();
-
-//		http
-//			.authorizeRequests()
-////			.antMatchers("/").hasRole("USER").permitAll()
-////			.antMatchers("/systems/**").hasRole("ADMIN")
-//			.antMatchers("/register").permitAll()
-//			.antMatchers("/login/home").permitAll()
-////			.antMatchers("/dog").permitAll()
-//			.antMatchers("/confirm").permitAll()
-//			.antMatchers("/login").permitAll();
-////			.anyRequest().permitAll();
-//		
-//        http.formLogin()
-//			.loginPage("/login/home")
-//			.loginProcessingUrl("/authenticateTheUser")
-//			.successHandler(customAuthenticationSuccessHandler)
-//			.usernameParameter("email")
-//			.permitAll()
-//			.and()
-//			.logout().permitAll()
-//			.and()
-//			.exceptionHandling().accessDeniedPage("/access-denied")
-//			.and().csrf().disable();// disable CSRF
-	
+//	Apply authentication for favorites page
 		http.authorizeRequests().antMatchers("/fav/**").authenticated();
-        
-		
 	    http.csrf().disable();
+//	    Login form 
 	    http.formLogin().loginPage("/login/showMyLoginPage").loginProcessingUrl("/authenticateTheUser")
 		.successHandler(customAuthenticationSuccessHandler)
 	    .usernameParameter("email").permitAll().and().exceptionHandling().accessDeniedPage("/access-denied")

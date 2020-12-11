@@ -44,21 +44,10 @@ public class DogdataController {
 	}
 	
 	
-//	@PostMapping("/doglist")
-//	public Collection<DogData> doglist(@RequestParam String city) {
-//		
-////		String city = "SYRACUSE";
-//		System.out.println(city);
-//		return dogDataService.findBycity(city);
-//		
-//	}
-	
+//	Display doglist	 when user enters city
 	@GetMapping("/doglist")
-	public ModelAndView processDogSearchRequest(
-				@Valid @ModelAttribute("searchCity") SearchCity form, 
-				BindingResult theBindingResult, 
-				Model theModel) {
-		
+	public ModelAndView processDogSearchRequest(@Valid @ModelAttribute("searchCity") SearchCity form, 
+			BindingResult theBindingResult, Model theModel) {
 		 
 		String city = form.getCity();
 		
@@ -68,24 +57,21 @@ public class DogdataController {
 			 return new ModelAndView("final_home_page");
 	     }
 
-		// check the database if user already exists
-//        List<DogData> exist_code = dogDataService.findBycity(city);
+//		Get list of dogs by city from database
 		List<DogData> dogdata = new ArrayList<>();
 		dogdata = dogDataService.findBycity(city);
 		
 		if(dogdata != null) {
         	theModel.addAttribute("DogListModel", dogdata);
-//        	return new ModelAndView("welcome");
         }
                
         if(dogdata == null) {
         	return new ModelAndView("final_home_page");
         }
-        
-                
         return new ModelAndView("dog_page");	
 	}
-	
+
+//	Get dog details by dog id
 	@GetMapping("/details/{id}")
 	public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
 	    ModelAndView mav = new ModelAndView("dogdetail_page");

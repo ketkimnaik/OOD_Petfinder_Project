@@ -40,49 +40,32 @@ public class DogCareController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
 	
-//	@GetMapping("/centerlist")
-//	public List<DogCare> doglist(/*@RequestParam string city*/) {
-//		
-//		String city = "Syracuse";
-//		return dogCareService.findBycity(city);
-//		
-//	}
-	
+//	Display dog daycare centers list for user enterd city
 	@GetMapping("/centerlist")
-	public ModelAndView processDogSearchRequest(
-				@Valid @ModelAttribute("searchCity") SearchCity form, 
-				BindingResult theBindingResult, 
-				Model theModel) {
-		
+	public ModelAndView processDogSearchRequest( @Valid @ModelAttribute("searchCity") SearchCity form, 
+			BindingResult theBindingResult, Model theModel) {
 		 
 		String city = form.getCity();
-		
-//		// form validation
-//		 if (theBindingResult.hasErrors()){
-//			 System.out.println("it has error");
-//			 return new ModelAndView("final_home_page");
-//	     }
-
-		// check the database if user already exists
-//        List<DogData> exist_code = dogDataService.findBycity(city);
 		List<DogCare> dogdata = new ArrayList<>();
+
+//		Get daycare centers list from city entered by user
 		dogdata = dogCareService.findBycity(city);
-		
+
+//		If entry exist then display in the form of table along with details
 		if(dogdata.size() != 0) {
 			theModel.addAttribute("table_exist", true);
         	theModel.addAttribute("DogListModel", dogdata);
-//        	return new ModelAndView("welcome");
         }
-               
+
+//		If daycare center does not exist the do ot display anything
         if(dogdata.size() == 0) {
         	theModel.addAttribute("table_not_exist", true);
         }
-        
-        
                 
         return new ModelAndView("daycare_search");	
 	}
-	
+
+//	Display daycareform page
 	@GetMapping("/showMDayCareSearch")
 	public ModelAndView showForm(Model model) {
 		

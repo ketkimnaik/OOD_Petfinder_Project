@@ -28,9 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-
-import ood.backend.happytails.Config.ShoppingConfiguration;
 import ood.backend.happytails.POJO.AddtoFav;
 import ood.backend.happytails.POJO.DogData;
 import ood.backend.happytails.POJO.User;
@@ -60,6 +57,7 @@ public class FavouritesController {
    @Autowired
    public AddtoFavService addtoFavService;
    
+//   Add dog to the favorites list
    @RequestMapping(value = "/addToFavourites/{id}", method = RequestMethod.GET)
    @ResponseBody
    public ModelAndView addToFavList(HttpServletRequest request, @PathVariable(name = "id") int id) {
@@ -72,17 +70,20 @@ public class FavouritesController {
 	   DogData dd = dogDataService.getDogDetail(id);
       
 	   AddtoFav f = addtoFavService.getEntryDetails(u.getId(), dd.getId());
-	   
+
+//	   If dog does not exist in favorites list then add and display success page
 	   if(f == null) {
 		   addtoFavService.addUserAndDog(u.getId(), id);
 		   return new ModelAndView("Success_Page");
 	   }
         
-        
+// If dog already exist in favorites list then display already exist page       
         return new ModelAndView("Exist_Page");
       
    }
+ 
    
+//   Remove dog from favorites list
    @RequestMapping(value = "/removeFromFavourites/{id}", method = RequestMethod.GET)
    @ResponseBody
    public ModelAndView currentUserNameSimple(HttpServletRequest request, @PathVariable(name = "id") int id) {
@@ -91,15 +92,14 @@ public class FavouritesController {
        String email = principal.getName();
        User u = userService.findByemail(email);
        
-       //Add userid and dogid to AddToFav table
-		
+//		Remove dog with the user entered userId and dogId from the favorites list and display Page for successful removal
        addtoFavService.removeUserAndDog(u.getId(), id);	
        
        return new ModelAndView("remove_page");
       
    }
    
-   
+//  Display favorites list
    @GetMapping("/favlist")
 	public ModelAndView processFavouritesRequest(HttpServletRequest request, Model theModel) {
 		 
@@ -132,26 +132,5 @@ public class FavouritesController {
                
        return mv;	
 	}
-	
-	@GetMapping("/details/{id}")
-	public ModelAndView showEditProductPage(@PathVariable(name = "id") int id, HttpServletRequest request) {
-	    
-       Principal principal = request.getUserPrincipal();
-	   
-	   String email = principal.getName();
-	   System.out.println(email);
-	   User u = userService.findByemail(email);
-	   DogData dd = dogDataService.getDogDetail(id);
-      
-	   AddtoFav f = addtoFavService.getEntryDetails(u.getId(), dd.getId());
-	   
-	   if(f == null) {
-		   return new ModelAndView("Success_Page");
-	   }
-        
-        
-        return new ModelAndView("Success_Page");	
-	}
-   
    
 }
