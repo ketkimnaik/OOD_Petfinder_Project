@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Dog Page</title>
+  <title>Happytails: Home Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -21,10 +22,8 @@
   </style>
 </head>
 <body>
+<h1> Successfully Added to fav</h1>
+<a th:href="@{/fav/favlist}" class="btn btn-primary" role="button" aria-pressed="true">Go to Favourites List</a>
+<a th:href="@{/}" class="btn btn-primary" role="button" aria-pressed="true">Home</a>
 
-
-<div class="row">
-    <h1>Hi <span th:text="${session.user.firstName}" ></span></h1>
-    
-  </div>
 </body>

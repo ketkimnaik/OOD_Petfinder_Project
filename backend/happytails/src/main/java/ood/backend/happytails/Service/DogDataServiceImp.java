@@ -28,5 +28,6 @@ public class DogDataServiceImp implements DogDataService {
 	public DogData getDogDetail(int id) {
 		return dogDataDAO.getDogDetail(id);
 	}
-
+	
+	
 }

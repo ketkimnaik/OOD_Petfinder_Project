@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Dog Page</title>
+  <title>Happytails: Home Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -21,19 +22,8 @@
   </style>
 </head>
 <body>
+<h1> Already Present in Favourites list</h1>
+<a th:href="@{/fav/favlist}" class="btn btn-primary" role="button" aria-pressed="true">To to Favourites List</a>
+<a th:href="@{/}" class="btn btn-primary" role="button" aria-pressed="true">Home</a>
 
-
-<div class="row">
-    <div class="col-sm-3" th:each="temp : ${DogListModel}">
-      <p th:text="${temp.contact_city}"></p>
-      <p th:text="${temp.id}"></p>
-      <p th:text="${temp.name}"></p>
-      <img th:src="${temp.pic_new}" class="img-responsive" style="width:100%" alt="Image">
-      
-      <a th:href="@{'/dog/details/' + ${temp.id}}"class="btn btn-primary" role="button" aria-pressed="true">View</a>
-      <a th:href="@{'/fav/addToFavourites/' + ${temp.id}}" class="btn btn-primary" role="button" aria-pressed="true">Favourites</a>
-      
-    </div>
-    
-  </div>
 </body>

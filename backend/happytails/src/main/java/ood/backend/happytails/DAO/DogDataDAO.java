@@ -10,4 +10,5 @@ public interface DogDataDAO {
 	public List<DogData> findBycity(String city);
 	
 	public DogData getDogDetail(int id);
+	
 }

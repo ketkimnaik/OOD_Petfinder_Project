@@ -38,10 +38,16 @@
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#">Pet Care</a></li>
         <li><a th:href="@{/daycare/showMDayCareSearch}">Day Care Center</a></li>
-        <li><a th:href="@{/fav/info}">Favourites</a></li>
+        <li><a th:href="@{/fav/favlist}">Favourites</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a th:href="@{/login/showMyLoginPage}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+        	<form th:action="@{/logout}" method="POST"><input type="submit" value="Logout" /></form>	
+        </li>	   					    
+										
       </ul>
     </div>
   </div>

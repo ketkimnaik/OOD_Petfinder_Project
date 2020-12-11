@@ -23,7 +23,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private Long id;
+	private int id;
 
 	@Column(name = "first_name")
 	public String firstName;
@@ -76,7 +76,7 @@ public class User {
 	inverseJoinColumns = @JoinColumn(name = "dog_id"))
 	private Collection<DogData> dogdata;
 
-	public User(Long id, String firstName, String lastName, String email, String phone, String password,
+	public User(int id, String firstName, String lastName, String email, String phone, String password,
 		Collection<Role> roles, Collection<DogData> dogdata) {
 		this.id = id;
 		this.firstName = firstName;
@@ -88,11 +88,11 @@ public class User {
 		this.dogdata = dogdata;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

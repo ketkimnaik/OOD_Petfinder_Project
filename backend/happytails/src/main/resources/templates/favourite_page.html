@@ -31,8 +31,8 @@
       <img th:src="${temp.pic_new}" class="img-responsive" style="width:100%" alt="Image">
       
       <a th:href="@{'/dog/details/' + ${temp.id}}"class="btn btn-primary" role="button" aria-pressed="true">View</a>
-      <a th:href="@{'/fav/addToFavourites/' + ${temp.id}}" class="btn btn-primary" role="button" aria-pressed="true">Favourites</a>
-      
+      <a th:href="@{'/fav/removeFromFavourites/' + ${temp.id}}"class="btn btn-primary" role="button" aria-pressed="true">Remove</a>
+            
     </div>
     
   </div>
