@@ -53,7 +53,7 @@ public class DogdataController {
 //		
 //	}
 	
-	@PostMapping("/doglist")
+	@GetMapping("/doglist")
 	public ModelAndView processDogSearchRequest(
 				@Valid @ModelAttribute("searchCity") SearchCity form, 
 				BindingResult theBindingResult, 
@@ -65,7 +65,7 @@ public class DogdataController {
 		// form validation
 		 if (theBindingResult.hasErrors()){
 			 System.out.println("it has error");
-			 return new ModelAndView("home_page");
+			 return new ModelAndView("final_home_page");
 	     }
 
 		// check the database if user already exists
@@ -79,7 +79,7 @@ public class DogdataController {
         }
                
         if(dogdata == null) {
-        	return new ModelAndView("home_page");
+        	return new ModelAndView("final_home_page");
         }
         
                 

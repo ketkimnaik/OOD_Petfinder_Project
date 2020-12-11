@@ -65,14 +65,6 @@ public class FavouritesController {
    public ModelAndView addToFavList(HttpServletRequest request, @PathVariable(name = "id") int id) {
        Principal principal = request.getUserPrincipal();
        
-//       String email = principal.getName();
-//       User u = userService.findByemail(email);
-//       
-       //Add userid and dogid to AddToFav table
-		
-//       addtoFavService.addUserAndDog(u.getId(), id);	
-       
-//       return new ModelAndView("Success_Page");
        
        String email = principal.getName();
 	   System.out.println(email);
@@ -134,7 +126,7 @@ public class FavouritesController {
 		}
               
        if(dd == null) {
-       	mv = new ModelAndView("home_page");
+       	mv = new ModelAndView("final_home_page");
        }
        
                

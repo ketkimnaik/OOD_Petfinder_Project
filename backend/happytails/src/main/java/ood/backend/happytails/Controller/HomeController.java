@@ -29,7 +29,7 @@ public class HomeController {
 	public ModelAndView showHomePage(Model model) {
 		
 		model.addAttribute("searchCity", new SearchCity());
-		ModelAndView modelAndView = new ModelAndView("home_page");
+		ModelAndView modelAndView = new ModelAndView("final_home_page");
 		
 		return modelAndView;
 	}

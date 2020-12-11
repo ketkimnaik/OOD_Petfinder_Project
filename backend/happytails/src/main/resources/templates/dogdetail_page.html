@@ -6,31 +6,63 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-  </style>
+  <Style>
+	  .service-icon {
+	  text-align: center;
+	  height: 300px;
+	}
+	
+	.service-icon img {
+	  display: inline-block;
+	  max-width: 1000px;
+	  height: 300px;
+	  vertical-align: middle;
+	  padding: 20px 0;
+	}
+	
+	
+	
+	@media (min-width: 2000px) {
+	  .services-box {
+	    margin-right: 0;
+	    border: 1px solid #e5e5e5;
+	    border-left: 0;
+	    border-top: 0;
+	    height: 515px;
+	  }
+	
+	  .services-box.last {
+	    border-right: 0;
+	  }
+	  
+	 
+	}
+  
+  </Style>
+  
 </head>
-<body>
-
-
-<div class="row">
-    <div class="col-sm-3" th:object="${dogdetail}">
-      <p th:text="*{contact_city}"></p>
-      <p th:text="*{name}"></p>
-      <img th:src="*{pic_new}" class="img-responsive" style="width:100%" alt="Image">
-     
-      
-    </div>
+<body>	
+	
+	<div class="services-wrapper">
+	  <div class="container svcs-container">
+	    <div class="row">
+	      <div class="col-sm-10 services-box hoverServices" th:object="${dogdetail}">
+	        <div class="service-icon">
+	          <img  th:src="*{pic_new}" alt="Card image cap">
+	        </div>
+	        <div class="info text-center">
+				<p class="card-text" ><b>Name : </b><strong th:text="*{name}"></strong></p>
+				<p class="card-text" ><b>Age : </b><strong th:text="*{age}"></strong></p>
+				<p class="card-text" ><b>Sex : </b><strong th:text="*{sex}"></strong></p>
+				<p class="card-text" ><b>Breed Primary: </b><strong th:text="*{breed_primary}"></strong></p>
+				<p class="card-text" ><b>City: </b><strong th:text="*{contact_city}"></strong></p>
+				<p class="card-text" ><b>City: </b><strong th:text="*{color_primary}"></strong></p>
+				<p class="card-text" ><strong th:text="*{description}"></strong></p>
+	        </div>
+	        
+	      </div>
+	    </div>
+	  </div>
+	</div>
     
-  </div>
 </body>

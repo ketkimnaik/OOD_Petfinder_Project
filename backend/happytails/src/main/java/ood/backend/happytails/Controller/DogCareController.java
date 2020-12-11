@@ -60,7 +60,7 @@ public class DogCareController {
 		// form validation
 		 if (theBindingResult.hasErrors()){
 			 System.out.println("it has error");
-			 return new ModelAndView("home_page");
+			 return new ModelAndView("final_home_page");
 	     }
 
 		// check the database if user already exists
