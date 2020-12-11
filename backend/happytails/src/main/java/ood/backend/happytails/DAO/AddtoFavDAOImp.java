@@ -22,15 +22,18 @@ public class AddtoFavDAOImp implements AddtoFavDAO {
 //		Get the current Hibernate session
 		Session session = entityManager.unwrap(Session.class);
 		AddtoFav addtoFav = new AddtoFav();
+
+//		Set the object attributes
 		addtoFav.setDogId(dogId);
 		addtoFav.setUserId(userId);
+		
 //		Save the user in database
 		session.saveOrUpdate(addtoFav);
 	}
 	
 	@Override
 	public List<AddtoFav> getList(int id) {
-		//		Get the current Hibernate session
+//		Get the current Hibernate session
 		Session session = entityManager.unwrap(Session.class);
 
 		Query<AddtoFav> query = session.createQuery("from AddtoFav where userId=:uid", AddtoFav.class);
@@ -53,6 +56,7 @@ public class AddtoFavDAOImp implements AddtoFavDAO {
 //		Get the current Hibernate session
 		Session session = entityManager.unwrap(Session.class);
 
+//		Delete the entry from favorites list
 		Query query = session.createQuery("DELETE FROM AddtoFav AS a WHERE a.userId=:uid AND a.dogId=:did ");
 		query.setParameter("uid", userId)
 			.setParameter("did", dogId );
@@ -65,6 +69,7 @@ public class AddtoFavDAOImp implements AddtoFavDAO {
 //		Get the current Hibernate session
 		Session session = entityManager.unwrap(Session.class);
 
+//		Get the entry from database
 		Query<AddtoFav> query = session.createQuery("from AddtoFav As a where a.userId=:uid AND a.dogId =:did", AddtoFav.class);
 		query.setParameter("uid", userId)
 		.setParameter("did", dogId);

@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "role")
 public class Role {
 
+//	Define fields present in database table role
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -21,6 +22,7 @@ public class Role {
 
 	public Role() {}
 
+//	Getters and Setters
 	public Role(String name) {
 		this.name = name;
 	}
@@ -41,8 +43,5 @@ public class Role {
 		this.name = name;
 	}
 	
-	
-	
-
 	
 }

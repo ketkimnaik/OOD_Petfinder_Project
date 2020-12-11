@@ -29,7 +29,6 @@ public class UserDAOImp implements UserDAO {
 		
 //		Get the current Hibernate session
 		Session session = entityManager.unwrap(Session.class);
-//		email = "ketkimnaik@gmail.com";
 //		now retrieve/read from database using email
 		Query<User> query = session.createQuery("from User where email=:uEmail", User.class);
 		query.setParameter("uEmail", email);

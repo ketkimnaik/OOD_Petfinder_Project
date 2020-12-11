@@ -19,9 +19,7 @@ public class AddtoFavServiceImp implements AddtoFavService {
 	@Override
 	@Transactional
 	public void addUserAndDog(int userId, int dogId) {
-		// TODO Auto-generated method stub
 		addtoFavDAO.save(userId, dogId);
-
 	}
 	
 	@Override

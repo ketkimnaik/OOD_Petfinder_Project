@@ -19,7 +19,6 @@ public class DogDataServiceImp implements DogDataService {
 	@Override
 	@Transactional
 	public List<DogData> findBycity(String city) {
-		// TODO Auto-generated method stub
 		return dogDataDAO.findBycity(city);
 	}
 	

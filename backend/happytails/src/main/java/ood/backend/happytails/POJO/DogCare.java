@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name="dogdaycare")
 public class DogCare {
 
+//	Define all columns present in dogdaycare center table
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
@@ -39,6 +40,7 @@ public class DogCare {
 	
 	public DogCare() {}
 
+//	Fieldwise constructor
 	public DogCare(String name, String streetNumber, String city, String zipcode, String state, String country,
 			String phone) {
 		this.name = name;
@@ -50,6 +52,7 @@ public class DogCare {
 		this.phone = phone;
 	}
 
+//	Getter and setters for all fields
 	public Long getId() {
 		return id;
 	}

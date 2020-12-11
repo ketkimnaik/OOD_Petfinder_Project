@@ -51,39 +51,6 @@ public class UserServiceImp implements UserService {
 		userDAO.save(user);
 	}
 	
-//	For email verification
-
-	@Override
-	@Transactional
-	public void save_user(User reguser) {
-		
-		User user = new User();
-		
-//		Assign user details to the user object
-		user.setFirstName(reguser.getFirstName());
-		user.setLastName(reguser.getLastName());
-		user.setEmail(reguser.getEmail());
-		user.setPhone(reguser.getPhone());
-		user.setPassword(passwordEncoder.encode(reguser.getPassword()));
-		
-//		Give user default role of "ROLE_USER"
-		user.setRoles(Arrays.asList(roleDAO.findRoleByName("ROLE_USER")));
-		
-		userDAO.save(user);
-	}
-	
-	@Override
-	public User transfer(RegisterUser reguser) {
-		User user = new User();
-		
-		user.setFirstName(reguser.getFirstName());
-		user.setLastName(reguser.getLastName());
-		user.setEmail(reguser.getEmail());
-		user.setPhone(reguser.getPhone());
-		user.setPassword(passwordEncoder.encode(reguser.getPassword()));
-		
-		return user;
-	}
 	
 	@Override
 	@Transactional

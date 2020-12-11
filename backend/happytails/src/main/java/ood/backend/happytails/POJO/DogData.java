@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name="dogdata")
 public class DogData {
 
+//	Define all columns present in dogdata table
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
@@ -106,6 +107,7 @@ public class DogData {
 	
 	public DogData() {}
 
+//	Define fieldwise constructor
 	public DogData(int id, String org_id, String pic_new, String species, String breed_primary, String breed_secondary,
 			String breed_mixed, String breed_unknown, String color_primary, String age, String sex, String size,
 			String house_trained, String special_needs, String shots_current, String env_children, String env_dogs,
@@ -144,6 +146,7 @@ public class DogData {
 		this.description = description;
 	}
 
+//	Define Getters and Setters
 	public int getId() {
 		return id;
 	}

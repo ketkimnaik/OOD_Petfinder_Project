@@ -25,20 +25,12 @@ public class DogCareDAOImp implements DogCareDAO {
 		query.setParameter("ucity", city);
 		
 		List<DogCare> dd = null;
-		
-//			Check the entry of the user with given email and email is always unique for each user 
-//			so use giveSingleResul() function
+
 		try {
 			dd = query.getResultList();
-//				
-			for(DogCare i : dd) {
-				System.out.println(i);
-			}
 		} catch (Exception e) {
 			dd = null;
 		}
-		
-		
 
 		return dd; 
 	}

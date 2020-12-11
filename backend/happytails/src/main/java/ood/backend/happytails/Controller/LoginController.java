@@ -39,28 +39,7 @@ public class LoginController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
 	
-	/*
-    * Add user in model attribute
-    */
-//   @ModelAttribute("user")
-//   public User setUpUserForm() {
-//      return new User();
-//   }
-		
-//	@GetMapping("/showMyLoginPagedemo")
-//	public User showUser() {
-//		
-//		User u = userService.findByemail("ketkimnaik@gmail.com");
-//		
-//		Collection<DogData> dd = u.getDogdata();
-//		
-//		for(DogData i : dd) {
-//			System.out.println(i.getId());
-//		}
-//
-//		return u;
-//	}
-	
+//	Display Login Page
 	@GetMapping("/showMyLoginPage")
 	public ModelAndView showForm() {
 		

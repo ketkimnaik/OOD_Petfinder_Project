@@ -11,7 +11,8 @@ import ood.backend.happytails.validator.ValidEmail;
     @FieldMatch(first = "password", second = "matchingPassword", message = "The password fields must match")
 })
 public class RegisterUser {
-	
+
+//	Define all fields present in the registration form
 	@NotNull(message = "is required")
 	@Size(min = 1, message = "is required")
 	private String firstName;
@@ -40,6 +41,7 @@ public class RegisterUser {
 
 	public RegisterUser() {}
 
+//	Constructor with fields
 	public RegisterUser(@NotNull(message = "is required") @Size(min = 1, message = "is required") String firstName,
 			@NotNull(message = "is required") @Size(min = 1, message = "is required") String lastName,
 			@NotNull(message = "is required") @Size(min = 1, message = "is required") String email,
@@ -54,6 +56,7 @@ public class RegisterUser {
 		this.matchingPassword = matchingPassword;
 	}
 
+//	Define Getters and Setters for all fields
 	public String getFirstName() {
 		return firstName;
 	}

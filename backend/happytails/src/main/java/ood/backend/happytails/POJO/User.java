@@ -19,7 +19,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="user")
 public class User {
-	
+
+//	Define all fields present in databse table user
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
@@ -42,6 +43,7 @@ public class User {
 	
 	public User() {}
 
+//	Fieldwise constructor
 	public User(String firstName, String lastName, String email, String phone, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;

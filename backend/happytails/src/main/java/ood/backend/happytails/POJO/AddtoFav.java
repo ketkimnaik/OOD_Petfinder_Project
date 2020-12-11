@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name="add_to_fav")
 public class AddtoFav {
 
+//	Link all the columns present in database table with the backend
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
@@ -24,11 +25,13 @@ public class AddtoFav {
 	
 	public AddtoFav() {}
 
+//	Define fieldwise constructor
 	public AddtoFav(int dogId, int userId) {
 		this.dogId = dogId;
 		this.userId = userId;
 	}
 
+//	Define Getter and Setter
 	public int getId() {
 		return id;
 	}

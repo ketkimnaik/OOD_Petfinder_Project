@@ -6,12 +6,9 @@ import ood.backend.happytails.form.RegisterUser;
 
 public interface UserService extends UserDetailsService{
 
-	
+//	Save registered user to database
 	public void save(RegisterUser user);
-	
-	public void save_user(User user);
-	
-	public User transfer(RegisterUser reguser);
-	
+
+//	Find user using email
 	public User findByemail(String email);
 }
