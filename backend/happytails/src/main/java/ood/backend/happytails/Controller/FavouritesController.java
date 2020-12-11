@@ -95,7 +95,7 @@ public class FavouritesController {
 		
        addtoFavService.removeUserAndDog(u.getId(), id);	
        
-       return new ModelAndView("Success_Page");
+       return new ModelAndView("remove_page");
       
    }
    

@@ -48,7 +48,7 @@ public class DogCareController {
 //		
 //	}
 	
-	@PostMapping("/centerlist")
+	@GetMapping("/centerlist")
 	public ModelAndView processDogSearchRequest(
 				@Valid @ModelAttribute("searchCity") SearchCity form, 
 				BindingResult theBindingResult, 
@@ -57,11 +57,11 @@ public class DogCareController {
 		 
 		String city = form.getCity();
 		
-		// form validation
-		 if (theBindingResult.hasErrors()){
-			 System.out.println("it has error");
-			 return new ModelAndView("final_home_page");
-	     }
+//		// form validation
+//		 if (theBindingResult.hasErrors()){
+//			 System.out.println("it has error");
+//			 return new ModelAndView("final_home_page");
+//	     }
 
 		// check the database if user already exists
 //        List<DogData> exist_code = dogDataService.findBycity(city);
