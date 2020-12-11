@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <title>Happytails: Home Page</title>
   <meta charset="utf-8">
@@ -3262,15 +3262,29 @@ span.flatpickr-weekday {
         <li><a th:href="@{/daycare/showMDayCareSearch}">Day Care Centers</a></li>
         <li><a th:href="@{/fav/favlist}">Favorites</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" >
      
-	<li><a th:href="@{/login/showMyLoginPage}"><input type="button" id="login" value="Login" name="b1" onclick=disable_enable('login')></a></li>
+	<li ><a th:href="@{/login/showMyLoginPage}" onclick=disable_enable('login')>Sign In</a></li>
 	</ul>
-	<ul class="nav navbar-nav navbar-right">
-	<li><form th:action="@{/logout}" method="POST"><input type="submit" value="Logout" /></form></li> 
+	<ul class="nav navbar-nav navbar-right" >
+	<li ><form name="logoutForm" th:action="@{/logout}" th:hidden="true" method="POST"><input type="submit" id="logout"  disabled/></form>
+		<a href="javascript: logoutForm.submit();">Sign Out</a>
+	</li> 
       </ul>
     </div>
   </div>
+  <script type="text/javascript">
+		function disable_enable(el)
+		{
+		el.disabled = true;
+   		if(el.value == 'login')
+        	document.getElementById('logout').disabled = false;
+    	else
+    		document.getElementById('login').disabled = false;
+        el.disabled = true;
+	}
+
+	</script>
 </nav>
 
   <!-- ======= Hero Section ======= -->
@@ -3330,18 +3344,7 @@ span.flatpickr-weekday {
   
     </script>
     
-    <script type="text/javascript">
-		function disable_enable(el)
-		{
-		el.disabled = true;
-   		if(el.value == 'login')
-        	document.test.logout.disabled = false;
-    	else
-        	document.test.login.disabled = false;
-        el.disabled = true;
-	}
-
-	</script>
+    
     
     
     <script>
