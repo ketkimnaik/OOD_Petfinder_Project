@@ -18,6 +18,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.oauth2.client.CommonOAuth2Provider;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import ood.backend.happytails.Service.UserService;
@@ -37,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
     
+       
     //trial code
 //    protected void configure(final HttpSecurity http) throws Exception {}
     
@@ -53,10 +55,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.successHandler(customAuthenticationSuccessHandler)
 	    .usernameParameter("email").permitAll().and().exceptionHandling().accessDeniedPage("/access-denied")
 	    .and().csrf().disable();
+	    
 		
 	}
-	
-	
 	
 	
 	//beans
