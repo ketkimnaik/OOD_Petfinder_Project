@@ -43,15 +43,28 @@ public class LoginController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
 	
-//	Display Login Page
-	@GetMapping("/showMyLoginPage")
-	public ModelAndView showForm() {
-		
-		ModelAndView modelAndView = new ModelAndView("login_form");
-		return modelAndView;
-	}
+////	Display Login Page
+//	@GetMapping("/showMyLoginPage")
+//	public ModelAndView showForm() {
+//		
+//		ModelAndView modelAndView = new ModelAndView("login_form");
+//		return modelAndView;
+//	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = {"/showMyLoginPage"})
+	public ModelAndView login(Model model, Principal principal, HttpServletRequest request) throws Exception{
+        String referer = request.getHeader("Referer"); //Get previous URL before call '/login'
 
+        System.out.println(referer);
+        //save referer URL to session, for later use on CustomAuthenticationSuccesshandler
+        if(!referer.equals("http://localhost:8080/register/showRegistrationForm")) {
+        request.getSession().setAttribute(CustomAuthenticationSuccessHandler.REDIRECT_URL_SESSION_ATTRIBUTE_NAME, referer); 
+        }
+        ModelAndView modelAndView = new ModelAndView("login_form");
+
+
+        return modelAndView;
+    }
 	
 
 }

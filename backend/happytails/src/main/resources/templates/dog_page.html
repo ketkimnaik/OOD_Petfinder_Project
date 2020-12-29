@@ -68,6 +68,7 @@
 			    <p class="card-text" ><b>Breed : </b><strong th:text="${temp.breed_primary}"></strong></p>
 			    <a th:href="@{'/dog/details/' + ${temp.id}}"class="btn btn-primary" role="button" aria-pressed="true">View</a>
 			    <a th:href="@{'/fav/addToFavourites/' + ${temp.id}}" class="btn btn-success" role="button" aria-pressed="true">Favorites</a>
+			    <a th:href="@{/}" class="btn btn-primary" role="button" aria-pressed="true">Home</a>
 	        </div>
 	        
 	      </div>

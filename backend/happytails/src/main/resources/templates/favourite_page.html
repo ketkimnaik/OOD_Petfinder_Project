@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Dog Page</title>
+  <title>Favorites Page Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -67,6 +67,7 @@
 			    <p class="card-text" ><b>Breed : </b><strong th:text="${temp.breed_primary}"></strong></p>
 			    <a th:href="@{'/dog/details/' + ${temp.id}}"class="btn btn-primary" role="button" aria-pressed="true">View</a>
 				<a th:href="@{'/fav/removeFromFavourites/' + ${temp.id}}"class="btn btn-success" role="button" aria-pressed="true">Remove</a>
+				<a th:href="@{/}"class="btn btn-primary" role="button" aria-pressed="true">Home</a>
 	        </div>
 	        
 	      </div>

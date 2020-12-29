@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <title>Happytails: Home Page</title>
   <meta charset="utf-8">
@@ -3263,19 +3264,10 @@ span.flatpickr-weekday {
         <li><a th:href="@{/fav/favlist}">Favorites</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" >
-     
-     <li class="drop-down"><a href="#">My Account</a>
-            <ul>
-              <li ><a th:href="@{/login/showMyLoginPage}" onclick=disable_enable('login')>Sign In</a></li>
-              <li ><form name="logoutForm" th:action="@{/logout}" th:hidden="true" method="POST"><input type="submit" id="logout"  disabled/></form>
-		<a href="javascript: logoutForm.submit();">Sign Out</a>
-	</li> 
-            </ul>
-          </li>
-     
-     
-     
-     
+              <li sec:authorize="!isAuthenticated()"><a th:href="@{/login/showMyLoginPage}" onclick=disable_enable('login')>Sign In</a></li>
+              <li sec:authorize="isAuthenticated()"><form name="logoutForm" th:action="@{/logout}" th:hidden="true" method="POST"><input type="submit" id="logout"  disabled/></form>
+		<a href="javascript: logoutForm.submit();">Sign Out</a></li> 
+	     
      </ul>
 	
     </div>
