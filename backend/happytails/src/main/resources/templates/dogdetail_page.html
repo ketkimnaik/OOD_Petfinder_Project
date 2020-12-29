@@ -1,0 +1,68 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Detal Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <Style>
+	  .service-icon {
+	  text-align: center;
+	  height: 300px;
+	}
+	
+	.service-icon img {
+	  display: inline-block;
+	  max-width: 1000px;
+	  height: 300px;
+	  vertical-align: middle;
+	  padding: 20px 0;
+	}
+	
+	
+	
+	@media (min-width: 2000px) {
+	  .services-box {
+	    margin-right: 0;
+	    border: 1px solid #e5e5e5;
+	    border-left: 0;
+	    border-top: 0;
+	    height: 515px;
+	  }
+	
+	  .services-box.last {
+	    border-right: 0;
+	  }
+	  
+	 
+	}
+  
+  </Style>
+  
+</head>
+<body>	
+	
+	<div class="services-wrapper">
+	  <div class="container svcs-container">
+	    <div class="row">
+	      <div class="col-sm-10 services-box hoverServices" th:object="${dogdetail}">
+	        <div class="service-icon">
+	          <img  th:src="*{pic_new}" alt="Card image cap">
+	        </div>
+	        <div class="info text-center">
+				<p class="card-text" ><b>Name : </b><strong th:text="*{name}"></strong></p>
+				<p class="card-text" ><b>Organization ID: </b><strong th:text="*{org_id}"></strong></p>
+				<p class="card-text" ><b>City: </b><strong th:text="*{contact_city}"></strong></p>
+				<p class="card-text" ><b>State: </b><strong th:text="*{contact_state}"></strong></p>
+				<p class="card-text" ><b>Zipcode: </b><strong th:text="*{zipcode}"></strong></p>
+				<p class="card-text" ><b>Color: </b><strong th:text="*{color_primary}"></strong></p>
+				<p class="card-text" ><strong th:text="*{description}"></strong></p>
+	        </div>
+	        
+	      </div>
+	    </div>
+	  </div>
+	</div>
+    
+</body>

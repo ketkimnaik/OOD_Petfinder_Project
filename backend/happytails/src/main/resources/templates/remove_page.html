@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Remove Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    
+    .container{  
+    text-align: center;  
+    border: 7px solid rgb(10, 10, 10);  
+    width: 1000px;  
+    height: 700px;  
+    padding-top: 50px;  
+    }  
+  </style>
+</head>
+
+<body>
+  <div class = "container mb-5 ">
+    <div class="row">
+      <div class="col-6"><div class="list-group">
+          <a href="#"><img class="card-img-top" src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2019/07/15092404/do-dogs-grieve-other-dogs-500x486.jpg"  alt="" height = "400" width="800" ></a>
+        </div></div>
+        <div class="col-6">    <h1 class="my-4">Successfully Removed from your favourites!</h1>
+          <a th:href="@{/fav/favlist}" class="btn btn-primary btn-lg" role="button"  aria-pressed="true">Back to Favourites List</a>
+          <a th:href="@{/}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Home</a>
+        </div>
+       
+
+    </div>
+</div>
+
+</body>
