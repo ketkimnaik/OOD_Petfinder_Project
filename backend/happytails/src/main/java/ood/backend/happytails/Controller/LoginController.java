@@ -57,7 +57,7 @@ public class LoginController {
 
         System.out.println(referer);
         //save referer URL to session, for later use on CustomAuthenticationSuccesshandler
-        if(!referer.equals("http://localhost:8080/register/showRegistrationForm")) {
+        if(!referer.equals("http://happytails.us-east-2.elasticbeanstalk.com/register/showRegistrationForm")) {
         request.getSession().setAttribute(CustomAuthenticationSuccessHandler.REDIRECT_URL_SESSION_ATTRIBUTE_NAME, referer); 
         }
         ModelAndView modelAndView = new ModelAndView("login_form");
